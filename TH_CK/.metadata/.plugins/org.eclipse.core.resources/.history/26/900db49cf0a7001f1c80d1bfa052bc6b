@@ -1,0 +1,5 @@
+package fit.iuh.services.Impl;
+
+public class ProductServiceImpl {
+
+}

@@ -1,0 +1,5 @@
+package fit.iuh.security;
+
+public class CustomUserDetailService {
+
+}

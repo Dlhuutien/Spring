@@ -1,0 +1,28 @@
+package fit.iuh.repositories;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import fit.iuh.entities.Product;
+
+@Repository
+public interface ProductRepository extends JpaRepository<Product, Integer> {
+	@Query("""
+		    SELECT p FROM Product p 
+		    WHERE (:categoryName IS NULL OR p.category.name LIKE %:categoryName%)
+		      AND (:isActive IS NULL OR p.isActive = :isActive)
+		      AND (:startDate IS NULL OR p.date >= :startDate)
+		""")
+		List<Product> searchProducts(
+		    @Param("categoryName") String categoryName,
+		    @Param("isActive") Boolean isActive,
+		    @Param("startDate") LocalDate startDate
+		);
+	@Query("SELECT COUNT(p) > 0 FROM Product p WHERE p.category.id = :categoryId AND p.code = :code")
+	boolean existsByCategoryAndCode(@Param("categoryId") int categoryId, @Param("code") String code);
+}

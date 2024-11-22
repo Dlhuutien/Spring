@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form method="post" th:action="@{/products/add}" th:object="${product}">
+		<div>
+            <label>Code:</label>
+            <input type="text" th:field="*{code}" placeholder="Enter product code" required>
+        </div>
+         <div>
+            <label>Name:</label>
+            <input type="text" th:field="*{name}" placeholder="Enter product name" required>
+        </div>
+         <div>
+            <label>Price:</label>
+            <input type="number" th:field="*{price}" placeholder="Enter product price" required>
+        </div>
+         <div>
+            <label>Description:</label>
+            <textarea th:field="*{description}" placeholder="Enter product description"></textarea>
+        </div>
+         <div>
+            <label>Category:</label>
+            <select th:field="*{category.id}" required>
+                <option value="" disabled selected>Select a category</option>
+                <option th:each="category : ${categories}" 
+                        th:value="${category.id}" 
+                        th:text="${category.name}">
+                </option>
+            </select>
+        </div>
+        <div>
+            <label>Register:</label>
+            <input type="text" th:field="*{register}" required>
+        </div>
+        <div>
+    	<label>Active:</label>
+    		<input type="radio" th:field="*{isActive}" th:value="true" /> Active
+    		<input type="radio" th:field="*{isActive}" th:value="false" /> Inactive
+		</div>
+		
+		 <div>
+            <label>Register Date:</label>
+            <input type="date" th:field="*{date}" required>
+        </div>
+
+		<div>
+		<button type="submit">Add product</button>
+		</div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,12 @@
+package fit.iuh.services;
+
+import java.util.List;
+
+import fit.iuh.entities.Product;
+
+public interface ProductService {
+	public List<Product> findAll();
+	
+	public void addProduct(Product product);
+	
+}

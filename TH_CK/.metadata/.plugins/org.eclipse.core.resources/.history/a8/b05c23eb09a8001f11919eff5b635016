@@ -1,0 +1,95 @@
+package fit.iuh.entities;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
+@Entity
+public class Product {
+	@Id
+	private int id;
+	private int code;
+	private String name;
+	private float prive;
+	private String description;
+//	@ManyToOne
+//	private Category category;
+	private String register;
+	private LocalDate date;
+	private boolean isActive;
+	public Product() {
+		super();
+	}
+	
+	public Product(int id, int code, String name, float prive, String description, String register, LocalDate date,
+			boolean isActive) {
+		super();
+		this.id = id;
+		this.code = code;
+		this.name = name;
+		this.prive = prive;
+		this.description = description;
+		this.register = register;
+		this.date = date;
+		this.isActive = isActive;
+	}
+
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getCode() {
+		return code;
+	}
+	public void setCode(int code) {
+		this.code = code;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public float getPrive() {
+		return prive;
+	}
+	public void setPrive(float prive) {
+		this.prive = prive;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+//	public Category getCategory() {
+//		return category;
+//	}
+//	public void setCategory(Category category) {
+//		this.category = category;
+//	}
+	public String getRegister() {
+		return register;
+	}
+	public void setRegister(String register) {
+		this.register = register;
+	}
+	public LocalDate getDate() {
+		return date;
+	}
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+	public boolean isActive() {
+		return isActive;
+	}
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+	
+	
+}

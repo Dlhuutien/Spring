@@ -1,0 +1,5 @@
+package fit.iuh.repository;
+
+public interface ProductRepository {
+
+}

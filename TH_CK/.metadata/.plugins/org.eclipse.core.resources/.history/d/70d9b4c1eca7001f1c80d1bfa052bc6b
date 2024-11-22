@@ -1,0 +1,5 @@
+package fit.iuh.entities;
+
+public class Product {
+
+}

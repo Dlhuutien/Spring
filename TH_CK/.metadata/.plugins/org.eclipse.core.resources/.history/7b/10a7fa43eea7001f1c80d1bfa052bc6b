@@ -1,0 +1,24 @@
+package fit.iuh.entities;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
+@Entity
+public class Product {
+	@Id
+	private int id;
+	private int code;
+	private String name;
+	private float prive;
+	private String description;
+	@ManyToOne
+	private Category category;
+	private String register;
+	private LocalDate date;
+	private boolean isActive;
+	
+	
+}

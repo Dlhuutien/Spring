@@ -1,0 +1,21 @@
+package fit.iuh.services.Impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import fit.iuh.entities.Product;
+import fit.iuh.services.ProductService;
+
+public class ProductServiceImpl implements ProductService{
+
+	@Autowired
+	private Pr
+	
+	@Override
+	public List<Product> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
